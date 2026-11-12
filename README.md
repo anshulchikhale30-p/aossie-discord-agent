@@ -51,3 +51,14 @@ The bot should ask which AOSSIE project you mean. Questions it cannot support ar
 The bot ignores its own messages, only watches configured channels, does not change roles, does not create GitHub issues, does not use Administrator permission, and does not send writes to GitHub. Repository docs are fetched from public GitHub raw URLs and cached under `data/repos`.
 
 For a production deployment, add a durable database, a scheduled doc sync, a local Ollama service or approved hosted model, retry/backoff, a maintainer approval queue, and the dashboard API adapter.
+
+## Render Web Service deployment
+
+If the Render account does not show Background Worker, deploy this repository as a **Web Service**. The bot starts a small HTTP health server on Render's `PORT` while keeping the Discord Gateway connection alive.
+
+- Build command: `pip install -r requirements.txt`
+- Start command: `python bot.py`
+- Health check path: `/health`
+- Environment variables: `DISCORD_TOKEN`, `DISCORD_CHANNEL_ID`, `ORG_NAME=AOSSIE`, `USE_OLLAMA=false`
+
+Static Site and Workflow are not suitable for this continuously connected bot. A free Web Service may sleep depending on the hosting plan; use an always-on service or VPS for uninterrupted production availability.

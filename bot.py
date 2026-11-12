@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import os
 import re
+import threading
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -25,6 +27,7 @@ AUDIT_LOG = Path(os.getenv("AUDIT_LOG", "./data/audit.jsonl"))
 USE_OLLAMA = os.getenv("USE_OLLAMA", "false").lower() == "true"
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
+PORT = int(os.getenv("PORT", "10000"))
 
 QUESTION_STARTERS = re.compile(r"^(how|where|what|when|why|can|could|is|are|does|do|which|who)\b", re.I)
 HELP_SIGNALS = re.compile(
@@ -189,9 +192,33 @@ class AOSSIEAgent(commands.Bot):
         append_jsonl(AUDIT_LOG, {"timestamp": now(), "event": "answer_sent", "message_id": str(message.id), "thread_id": str(thread.id) if thread else None, "repository": route.name, "docs": [doc for doc, _ in docs], "gap": not bool(docs)})
 
 
+class HealthHandler(BaseHTTPRequestHandler):
+    def do_GET(self) -> None:
+        if self.path not in ("/", "/health", "/api/health"):
+            self.send_response(404)
+            self.end_headers()
+            return
+        body = b"AOSSIE Discord Agent is running"
+        self.send_response(200)
+        self.send_header("Content-Type", "text/plain; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def log_message(self, format: str, *args: Any) -> None:
+        return
+
+
+def start_health_server() -> None:
+    server = ThreadingHTTPServer(("0.0.0.0", PORT), HealthHandler)
+    print(f"Health server listening on port {PORT}")
+    server.serve_forever()
+
+
 TOKEN = os.getenv("DISCORD_TOKEN")
 if not TOKEN:
     raise RuntimeError("DISCORD_TOKEN is missing. Copy .env.example to .env and add it locally.")
 
 bot = AOSSIEAgent()
+threading.Thread(target=start_health_server, daemon=True).start()
 bot.run(TOKEN)
