@@ -78,3 +78,12 @@ If the Render account does not show Background Worker, deploy this repository as
 
 Static Site and Workflow are not suitable for this continuously connected bot. A free Web Service may sleep depending on the hosting plan; use an always-on service or VPS for uninterrupted production availability. Render's default filesystem is ephemeral, so attach a persistent disk and point `DATABASE_PATH`, `DOCS_DIR`, and `AUDIT_LOG` at it if you need records to survive restarts.
 
+## Codebase-understanding gate for issues and PRs
+
+When a member asks to create an issue, bug report, feature request, contribution, or pull request, the Agent starts a short three-question understanding check before processing the request. The questions cover the repository documentation, what to do when the docs are insufficient, and what a useful issue or PR description must contain.
+
+The member selects answers using Discord buttons. If all answers are correct, the original request continues and the result is stored for that member and organization. If an answer is wrong, the buttons close and the Agent responds:
+
+> That option is not correct. Please re-study the codebase, README, and CONTRIBUTING.md before creating an issue or PR.
+
+The check is stored in SQLite, so a passed member does not have to repeat it for every later issue or PR. This is an onboarding quality gate, not proof that someone understands every line of the repository; maintainers still review issues and pull requests.

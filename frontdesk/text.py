@@ -168,3 +168,9 @@ def looks_like_human_request(value: str) -> bool:
             "speak to a person", "talk to a person",
         )
     )
+
+
+def looks_like_codebase_change_request(value: str) -> bool:
+    """Detect requests that could lead to an issue or pull request."""
+    text = value.casefold()
+    return bool(re.search(r"\b(issue|bug report|pull request|pull-request|pr|feature request|submit|contribute|contribution)\b", text))

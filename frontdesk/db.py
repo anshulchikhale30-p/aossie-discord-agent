@@ -109,6 +109,19 @@ CREATE TABLE IF NOT EXISTS pending_questions (
 );
 CREATE INDEX IF NOT EXISTS idx_pending_tenant ON pending_questions(tenant_id, status, created_at);
 
+CREATE TABLE IF NOT EXISTS codebase_checks (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tenant_id INTEGER NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
+    customer_id INTEGER NOT NULL REFERENCES customers(id) ON DELETE CASCADE,
+    repository TEXT NOT NULL,
+    status TEXT NOT NULL DEFAULT 'not_started' CHECK (status IN ('not_started', 'in_progress', 'passed', 'failed')),
+    score INTEGER NOT NULL DEFAULT 0,
+    total INTEGER NOT NULL DEFAULT 0,
+    updated_at TEXT NOT NULL,
+    UNIQUE (tenant_id, customer_id, repository)
+);
+CREATE INDEX IF NOT EXISTS idx_codebase_checks_customer ON codebase_checks(tenant_id, customer_id, repository, status);
+
 CREATE TABLE IF NOT EXISTS availability (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     tenant_id INTEGER NOT NULL REFERENCES tenants(id) ON DELETE CASCADE,
@@ -347,6 +360,37 @@ class Database:
             """,
             (str(platform_user_id),),
         )
+
+    # Codebase understanding checks ------------------------------------------
+    def get_codebase_check(self, tenant_id: int, customer_id: int, repository: str) -> sqlite3.Row | None:
+        return self._one(
+            "SELECT * FROM codebase_checks WHERE tenant_id = ? AND customer_id = ? AND repository = ?",
+            (tenant_id, customer_id, repository),
+        )
+
+    def save_codebase_check(
+        self,
+        tenant_id: int,
+        customer_id: int,
+        repository: str,
+        status: str,
+        score: int,
+        total: int,
+    ) -> sqlite3.Row:
+        self.conn.execute(
+            """
+            INSERT INTO codebase_checks (tenant_id, customer_id, repository, status, score, total, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(tenant_id, customer_id, repository) DO UPDATE SET
+                status = excluded.status, score = excluded.score, total = excluded.total,
+                updated_at = excluded.updated_at
+            """,
+            (tenant_id, customer_id, repository, status, score, total, now_iso()),
+        )
+        row = self.get_codebase_check(tenant_id, customer_id, repository)
+        if row is None:
+            raise RuntimeError("Could not store codebase check.")
+        return row
 
     # Conversations and messages ---------------------------------------------
     def create_conversation(

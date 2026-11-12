@@ -29,12 +29,14 @@ from .text import (
     looks_like_dissatisfaction,
     looks_like_greeting,
     looks_like_human_request,
+    looks_like_codebase_change_request,
     looks_like_thanks,
     looks_urgent,
     split_message,
 )
 from .timeutil import format_dt, humanize_delta, parse_iso
 from .views import AttendanceView, TenantSelectView
+from .codebase_quiz import CodebaseQuizView
 
 logger = logging.getLogger("frontdesk")
 
@@ -405,14 +407,49 @@ class FrontDeskBot(commands.Bot):
         target: discord.abc.Messageable,
         author_id: int | str,
         author_label: str,
+        skip_codebase_check: bool = False,
     ):
         question = question.strip()
         if not question:
             return None
+        org = self.org_for(tenant)
+        if not skip_codebase_check and looks_like_codebase_change_request(question):
+            existing_check = self.services.db.get_codebase_check(
+                int(tenant["id"]), int(customer["id"]), org.default_repo
+            )
+            if existing_check is None or existing_check["status"] != "passed":
+                self.services.db.save_codebase_check(
+                    int(tenant["id"]), int(customer["id"]), org.default_repo, "in_progress", 0, 3
+                )
+                view = CodebaseQuizView(
+                    self,
+                    int(tenant["id"]),
+                    int(customer["id"]),
+                    org.default_repo,
+                    question,
+                    target,
+                    conversation,
+                    author_id,
+                    author_label,
+                )
+                prompt = view.prompt()
+                await target.send(
+                    f"Before I help you create an issue or PR, I want to check your understanding of the codebase.\n\n{prompt}",
+                    view=view,
+                )
+                self.services.db.add_message(
+                    int(conversation["id"]), self.user.id if self.user else None, "assistant", prompt
+                )
+                self.services.db.audit(
+                    int(tenant["id"]),
+                    author_label,
+                    "codebase_check_started",
+                    {"repository": org.default_repo, "question": question},
+                )
+                return None
         self.services.db.add_message(int(conversation["id"]), author_id, "user", question)
         self.services.db.touch_conversation(int(conversation["id"]))
         history = self.services.db.recent_messages(int(conversation["id"]), 10)
-        org = self.org_for(tenant)
         result = await self.services.agent.answer(
             org,
             tenant,
