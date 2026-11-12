@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: aossie-discord-agent
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DISCORD_CHANNEL_ID
+        sync: false
+      - key: ORG_NAME
+        value: AOSSIE
+      - key: USE_OLLAMA
+        value: "false"
