@@ -8,9 +8,15 @@ services:
     envVars:
       - key: DISCORD_TOKEN
         sync: false
-      - key: DISCORD_CHANNEL_ID
-        sync: false
-      - key: ORG_NAME
-        value: AOSSIE
+      - key: DEFAULT_ORG
+        value: aossie
       - key: USE_OLLAMA
         value: "false"
+      - key: REPO_DOCS_ENABLED
+        value: "true"
+      # Optional legacy single-channel setting; the bot also auto-detects
+      # support channels and can be configured with /frontdesk setup.
+      - key: DISCORD_CHANNEL_ID
+        sync: false
+      # Render's default filesystem is ephemeral. Attach a persistent disk and
+      # set DATABASE_PATH, DOCS_DIR, and AUDIT_LOG to keep records across restarts.

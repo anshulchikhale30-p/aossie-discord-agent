@@ -1,0 +1,2567 @@
+{
+  "aossie": {
+    "display_name": "AOSSIE",
+    "github_org": "AOSSIE-Org",
+    "website": "https://aossie.org",
+    "description": "Australian Open Source Software Innovation and Education",
+    "timezone": "Australia/Melbourne",
+    "default_repo": "Info",
+    "catalogued_at": "2026-11-12T12:10:05+00:00",
+    "repos": {
+      ".github": {
+        "url": "https://github.com/AOSSIE-Org/.github",
+        "description": "",
+        "default_branch": "master",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "github"
+        ]
+      },
+      "admin": {
+        "url": "https://github.com/AOSSIE-Org/admin",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "admin"
+        ]
+      },
+      "Agora-Blockchain": {
+        "url": "https://github.com/AOSSIE-Org/Agora-Blockchain",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "agora",
+          "blockchain"
+        ]
+      },
+      "AI-Keyboard": {
+        "url": "https://github.com/AOSSIE-Org/AI-Keyboard",
+        "description": "AI-Powered Keyboard for Mobiles",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "keyboard",
+          "powered",
+          "keyboard",
+          "mobiles"
+        ]
+      },
+      "AutoInitialIssues": {
+        "url": "https://github.com/AOSSIE-Org/AutoInitialIssues",
+        "description": "Automatically Initializes Repos with Issues",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "autoinitialissues",
+          "automatically",
+          "initializes",
+          "repos",
+          "issues"
+        ]
+      },
+      "BabyNest": {
+        "url": "https://github.com/AOSSIE-Org/BabyNest",
+        "description": "BabyNest — A pregnancy tracking app with personalized health insights, appointment management, and an on-device AI assistant.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "babynest",
+          "babynest",
+          "pregnancy",
+          "tracking",
+          "personalized",
+          "health",
+          "insights",
+          "appointment",
+          "management",
+          "device",
+          "assistant",
+          "baby nest",
+          "baby",
+          "nest"
+        ]
+      },
+      "BringYourOwnKey": {
+        "url": "https://github.com/AOSSIE-Org/BringYourOwnKey",
+        "description": "Component to let users input their own API keys",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "bringyourownkey",
+          "let",
+          "input",
+          "own",
+          "api",
+          "keys"
+        ]
+      },
+      "CarbonTracker": {
+        "url": "https://github.com/AOSSIE-Org/CarbonTracker",
+        "description": "Sunny Local Fitness Tracker that also tracks saved CO2 Emissions",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "carbontracker",
+          "sunny",
+          "fitness",
+          "tracker",
+          "tracks",
+          "saved",
+          "co2",
+          "emissions",
+          "carbon tracker",
+          "carbon",
+          "carbon footprint",
+          "footprint"
+        ]
+      },
+      "CarbonTracker-WatchCompanionApp": {
+        "url": "https://github.com/AOSSIE-Org/CarbonTracker-WatchCompanionApp",
+        "description": "Watch Companion App for Carbon Tracker",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "carbontracker",
+          "watchcompanionapp",
+          "watch",
+          "companion",
+          "carbon",
+          "tracker",
+          "carbon tracker watch",
+          "watch companion"
+        ]
+      },
+      "CodingAgent": {
+        "url": "https://github.com/AOSSIE-Org/CodingAgent",
+        "description": "AI Coding Agent",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "codingagent",
+          "coding",
+          "agent",
+          "coding agent",
+          "ai coding"
+        ]
+      },
+      "ContributorAutomation": {
+        "url": "https://github.com/AOSSIE-Org/ContributorAutomation",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "contributorautomation"
+        ]
+      },
+      "DebateAI": {
+        "url": "https://github.com/AOSSIE-Org/DebateAI",
+        "description": "DebateAI allows you to debate with other people and let your debate be evaluated by AI or practice your debate skills against AI.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "debateai",
+          "debateai",
+          "allows",
+          "debate",
+          "people",
+          "let",
+          "evaluated",
+          "practice",
+          "skills",
+          "against",
+          "debate ai"
+        ]
+      },
+      "DebateAI-LandingPage": {
+        "url": "https://github.com/AOSSIE-Org/DebateAI-LandingPage",
+        "description": "Landing Page for DebateAI - DebateAI allows you to debate with other people and let your debate be evaluated by AI or practice your debate skills against AI.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "debateai",
+          "landingpage",
+          "landing",
+          "page",
+          "debateai",
+          "allows",
+          "debate",
+          "people",
+          "let",
+          "evaluated",
+          "practice",
+          "skills",
+          "against"
+        ]
+      },
+      "Devr.AI": {
+        "url": "https://github.com/AOSSIE-Org/Devr.AI",
+        "description": "Devr.AI is an advanced AI-powered Developer Relations (DevRel) assistant designed to revolutionize open-source community management. By integrating with platforms like Discord, Slack, GitHub, and Discourse, Devr.AI functions as a virtual DevRel advocate that helps maintainers engage with contributors and streamline onboarding processes.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "devr",
+          "devr",
+          "powered",
+          "developer",
+          "relations",
+          "devrel",
+          "assistant",
+          "revolutionize",
+          "community",
+          "management",
+          "integrating",
+          "platforms",
+          "like",
+          "discord",
+          "slack",
+          "github",
+          "discourse",
+          "functions",
+          "virtual",
+          "advocate",
+          "maintainers",
+          "engage",
+          "contributors",
+          "streamline",
+          "onboarding",
+          "processes",
+          "devr.ai",
+          "developer relations"
+        ]
+      },
+      "Djed-Solidity-WebDashboard": {
+        "url": "https://github.com/AOSSIE-Org/Djed-Solidity-WebDashboard",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "djed",
+          "solidity",
+          "webdashboard"
+        ]
+      },
+      "DocPilot": {
+        "url": "https://github.com/AOSSIE-Org/DocPilot",
+        "description": "A new age EMR application using conversational AI at its best",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "docpilot",
+          "age",
+          "emr",
+          "conversational",
+          "best",
+          "doc pilot",
+          "doc",
+          "pilot"
+        ]
+      },
+      "EduAid": {
+        "url": "https://github.com/AOSSIE-Org/EduAid",
+        "description": "A tool that can auto-generate short quizzes on the basis of the content provided.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "eduaid",
+          "auto",
+          "generate",
+          "short",
+          "quizzes",
+          "basis",
+          "content",
+          "provided"
+        ]
+      },
+      "Ell-ena": {
+        "url": "https://github.com/AOSSIE-Org/Ell-ena",
+        "description": "Ell-ena is a smart AI product manager that streamlines task, project, and meeting management through a simple chat interface.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "ell",
+          "ena",
+          "ell",
+          "ena",
+          "product",
+          "manager",
+          "streamlines",
+          "task",
+          "meeting",
+          "management",
+          "chat",
+          "interface"
+        ]
+      },
+      "Gitcord-GithubDiscordBot": {
+        "url": "https://github.com/AOSSIE-Org/Gitcord-GithubDiscordBot",
+        "description": "Local-First Discord ↔ GitHub Automation for Organizations",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gitcord",
+          "githubdiscordbot",
+          "first",
+          "discord",
+          "github",
+          "automation",
+          "organizations",
+          "github discord",
+          "discord github",
+          "role sync",
+          "role",
+          "sync"
+        ]
+      },
+      "Gitcord-Test": {
+        "url": "https://github.com/AOSSIE-Org/Gitcord-Test",
+        "description": "Repo for Testing Gitcord",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gitcord",
+          "test",
+          "repo",
+          "testing",
+          "gitcord",
+          "gitcord test"
+        ]
+      },
+      "IndexedDB-Import-Export": {
+        "url": "https://github.com/AOSSIE-Org/IndexedDB-Import-Export",
+        "description": "Library and Component to make it easier to import and export from IndexedDB",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "indexeddb",
+          "import",
+          "export",
+          "easier",
+          "import",
+          "export",
+          "indexeddb"
+        ]
+      },
+      "Info": {
+        "url": "https://github.com/AOSSIE-Org/Info",
+        "description": "Important Information and Guidelines for AOSSIE's Contributors, Mentors and Admins",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "info",
+          "important",
+          "information",
+          "guidelines",
+          "aossie",
+          "contributors",
+          "mentors",
+          "admins",
+          "aossie info",
+          "contributor guidelines",
+          "contributor",
+          "org info",
+          "org"
+        ]
+      },
+      "InPactAI": {
+        "url": "https://github.com/AOSSIE-Org/InPactAI",
+        "description": "Inpact is an open-source AI-powered platform designed to connect content creators, brands, and agencies through data-driven insights. By leveraging Generative AI (GenAI), audience analytics, and engagement metrics, Inpact ensures highly relevant sponsorship opportunities for creators while maximizing ROI for brands investing in influencer marketing",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "inpactai",
+          "inpact",
+          "powered",
+          "connect",
+          "content",
+          "creators",
+          "brands",
+          "agencies",
+          "driven",
+          "insights",
+          "leveraging",
+          "generative",
+          "genai",
+          "audience",
+          "analytics",
+          "engagement",
+          "metrics",
+          "ensures",
+          "highly",
+          "relevant",
+          "sponsorship",
+          "opportunities",
+          "maximizing",
+          "roi",
+          "investing",
+          "influencer",
+          "marketing"
+        ]
+      },
+      "LibrEd": {
+        "url": "https://github.com/AOSSIE-Org/LibrEd",
+        "description": "Self-Learning Assistant",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "libred",
+          "self",
+          "learning",
+          "assistant"
+        ]
+      },
+      "MCP-Template": {
+        "url": "https://github.com/AOSSIE-Org/MCP-Template",
+        "description": "Template for MCPs",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "mcp",
+          "template",
+          "template",
+          "mcps"
+        ]
+      },
+      "Monumento": {
+        "url": "https://github.com/AOSSIE-Org/Monumento",
+        "description": "Monumento: Share, connect, and explore landmarks with AR",
+        "default_branch": "develop",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "monumento",
+          "monumento",
+          "share",
+          "connect",
+          "explore",
+          "landmarks",
+          "landmark"
+        ]
+      },
+      "MoveYourBody": {
+        "url": "https://github.com/AOSSIE-Org/MoveYourBody",
+        "description": "Sunny Local AI-Powered Fitness App",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "moveyourbody",
+          "sunny",
+          "powered",
+          "fitness",
+          "move your body",
+          "move",
+          "body",
+          "fitness app"
+        ]
+      },
+      "MoveYourBody-Website": {
+        "url": "https://github.com/AOSSIE-Org/MoveYourBody-Website",
+        "description": "MoveYourBody is a fitness mobile app",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "moveyourbody",
+          "moveyourbody",
+          "fitness",
+          "mobile"
+        ]
+      },
+      "NeuroTrack": {
+        "url": "https://github.com/AOSSIE-Org/NeuroTrack",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "neurotrack"
+        ]
+      },
+      "Ogh": {
+        "url": "https://github.com/AOSSIE-Org/Ogh",
+        "description": "Live streaming app for camera or screen capture to multiple RTMP/RTMPS destinations, with YouTube and Twitch integration. Start streams directly in the app with no Google Play Services or dashboard visits required.",
+        "default_branch": "master",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "ogh",
+          "live",
+          "streaming",
+          "camera",
+          "screen",
+          "capture",
+          "multiple",
+          "rtmp",
+          "rtmps",
+          "destinations",
+          "youtube",
+          "twitch",
+          "integration",
+          "start",
+          "streams",
+          "directly",
+          "google",
+          "play",
+          "services",
+          "dashboard",
+          "visits",
+          "required"
+        ]
+      },
+      "OpenPeerChat-flutter": {
+        "url": "https://github.com/AOSSIE-Org/OpenPeerChat-flutter",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "openpeerchat",
+          "flutter"
+        ]
+      },
+      "OpenPeerChat-react-native": {
+        "url": "https://github.com/AOSSIE-Org/OpenPeerChat-react-native",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "openpeerchat",
+          "react",
+          "native"
+        ]
+      },
+      "OpenVerifiableLLM": {
+        "url": "https://github.com/AOSSIE-Org/OpenVerifiableLLM",
+        "description": "Local Fully Open, Open-Weight, Open-Data, Verifiable LLMs. Language models you can check yourself: every training step recomputable bit for bit.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "openverifiablellm",
+          "fully",
+          "weight",
+          "verifiable",
+          "llms",
+          "language",
+          "models",
+          "check",
+          "yourself",
+          "every",
+          "training",
+          "step",
+          "recomputable",
+          "bit",
+          "open verifiable llm",
+          "llm",
+          "verifiable llm",
+          "open weight",
+          "open-weight"
+        ]
+      },
+      "OrgExplorer": {
+        "url": "https://github.com/AOSSIE-Org/OrgExplorer",
+        "description": "Intuitive Dashboard to Explore Large GitHub Organizations",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "orgexplorer",
+          "intuitive",
+          "dashboard",
+          "explore",
+          "large",
+          "github",
+          "organizations",
+          "org explorer",
+          "org",
+          "explorer",
+          "organization dashboard",
+          "organization"
+        ]
+      },
+      "P2PRelay": {
+        "url": "https://github.com/AOSSIE-Org/P2PRelay",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "p2prelay"
+        ]
+      },
+      "Perspective": {
+        "url": "https://github.com/AOSSIE-Org/Perspective",
+        "description": "Perspective analyzes your news or social feed and presents credible counter-narratives from reliable sources—helping you think critically, reduce bias, and see the full picture. Don’t settle for one-sided stories. Get complete, nuanced facts.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "perspective",
+          "perspective",
+          "analyzes",
+          "news",
+          "social",
+          "feed",
+          "presents",
+          "credible",
+          "counter",
+          "narratives",
+          "reliable",
+          "sources",
+          "helping",
+          "think",
+          "critically",
+          "reduce",
+          "bias",
+          "see",
+          "picture",
+          "don",
+          "settle",
+          "one",
+          "sided",
+          "stories",
+          "get",
+          "complete",
+          "nuanced",
+          "facts"
+        ]
+      },
+      "PictoPy": {
+        "url": "https://github.com/AOSSIE-Org/PictoPy",
+        "description": "A desktop image gallery with a privacy-first approach. It detects objects and clusters faces.",
+        "default_branch": "dev",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "pictopy",
+          "desktop",
+          "image",
+          "gallery",
+          "privacy",
+          "first",
+          "approach",
+          "detects",
+          "objects",
+          "clusters",
+          "faces",
+          "picto py",
+          "picto",
+          "photo gallery",
+          "photo",
+          "image gallery"
+        ]
+      },
+      "PictoPy-Website": {
+        "url": "https://github.com/AOSSIE-Org/PictoPy-Website",
+        "description": "PictoPy Landing Page",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "pictopy",
+          "pictopy",
+          "landing",
+          "page"
+        ]
+      },
+      "PullRequestDashboard": {
+        "url": "https://github.com/AOSSIE-Org/PullRequestDashboard",
+        "description": "Local merge analysis dashboard that clusters PRs semantically and generates interactive dependency conflict DAGs.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "pullrequestdashboard",
+          "merge",
+          "analysis",
+          "dashboard",
+          "clusters",
+          "prs",
+          "semantically",
+          "generates",
+          "interactive",
+          "dependency",
+          "conflict",
+          "dags",
+          "pull request dashboard",
+          "pull",
+          "request",
+          "pr dashboard",
+          "merge dashboard"
+        ]
+      },
+      "PythonScripts": {
+        "url": "https://github.com/AOSSIE-Org/PythonScripts",
+        "description": "Python Scripts to automate various tasks",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "pythonscripts",
+          "python",
+          "scripts",
+          "automate",
+          "various",
+          "tasks"
+        ]
+      },
+      "Rein": {
+        "url": "https://github.com/AOSSIE-Org/Rein",
+        "description": "Cross-platform remote desktop tool with a browser-based client. The desktop server runs on supported host platforms, while clients connect through a web browser without requiring a separate native application. Rein provides remote desktop interaction, real-time screen streaming, file transfer, and input support through a single interface.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "rein",
+          "cross",
+          "remote",
+          "desktop",
+          "browser",
+          "client",
+          "runs",
+          "supported",
+          "host",
+          "platforms",
+          "clients",
+          "connect",
+          "web",
+          "requiring",
+          "separate",
+          "native",
+          "rein",
+          "interaction",
+          "real",
+          "time",
+          "screen",
+          "streaming",
+          "file",
+          "transfer",
+          "input",
+          "single",
+          "interface"
+        ]
+      },
+      "Resonate": {
+        "url": "https://github.com/AOSSIE-Org/Resonate",
+        "description": "Clubhouse, but Open Source. A social voice platform.",
+        "default_branch": "master",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "resonate",
+          "clubhouse",
+          "but",
+          "social",
+          "voice",
+          "voice chat",
+          "chat"
+        ]
+      },
+      "Resonate-Backend": {
+        "url": "https://github.com/AOSSIE-Org/Resonate-Backend",
+        "description": "Appwrite Cloud Functions for Resonate Project.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "resonate",
+          "backend",
+          "appwrite",
+          "cloud",
+          "functions",
+          "resonate"
+        ]
+      },
+      "Resonate-Website": {
+        "url": "https://github.com/AOSSIE-Org/Resonate-Website",
+        "description": "Resonate Landing Page",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "resonate",
+          "resonate",
+          "landing",
+          "page"
+        ]
+      },
+      "SciKitLearn-Rust": {
+        "url": "https://github.com/AOSSIE-Org/SciKitLearn-Rust",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "scikitlearn",
+          "rust"
+        ]
+      },
+      "SkillBot": {
+        "url": "https://github.com/AOSSIE-Org/SkillBot",
+        "description": "Local Discord assistant that answers developer queries using repo-specific skills and logs knowledge gaps for maintainers.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "skillbot",
+          "discord",
+          "assistant",
+          "answers",
+          "developer",
+          "queries",
+          "repo",
+          "specific",
+          "skills",
+          "logs",
+          "knowledge",
+          "gaps",
+          "maintainers",
+          "skill bot",
+          "skill",
+          "bot",
+          "skills bot",
+          "discord assistant",
+          "knowledge gaps"
+        ]
+      },
+      "Skills": {
+        "url": "https://github.com/AOSSIE-Org/Skills",
+        "description": "Centralized repository for org-wide and common AI agent skills, policies, onboarding guides, and engineering rules.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "skills",
+          "centralized",
+          "org",
+          "wide",
+          "common",
+          "agent",
+          "skills",
+          "policies",
+          "onboarding",
+          "guides",
+          "engineering",
+          "rules",
+          "aossie skills",
+          "aossie",
+          "agent skills",
+          "engineering rules"
+        ]
+      },
+      "SmartNotes": {
+        "url": "https://github.com/AOSSIE-Org/SmartNotes",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "smartnotes"
+        ]
+      },
+      "Social-Street-Smart": {
+        "url": "https://github.com/AOSSIE-Org/Social-Street-Smart",
+        "description": "An Extension to make Internet a safer and a more productive service for the users.",
+        "default_branch": "master",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "social",
+          "street",
+          "extension",
+          "internet",
+          "safer",
+          "productive",
+          "service"
+        ]
+      },
+      "social-street-smart-api": {
+        "url": "https://github.com/AOSSIE-Org/social-street-smart-api",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "social",
+          "street",
+          "api"
+        ]
+      },
+      "SocialShareButton": {
+        "url": "https://github.com/AOSSIE-Org/SocialShareButton",
+        "description": "A Component to Share in Social Media",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "socialsharebutton",
+          "share",
+          "social",
+          "media"
+        ]
+      },
+      "SummerOfCode-Reports": {
+        "url": "https://github.com/AOSSIE-Org/SummerOfCode-Reports",
+        "description": "Repo for Final Summer of Code Reports",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "summerofcode",
+          "reports",
+          "repo",
+          "final",
+          "summer",
+          "reports"
+        ]
+      },
+      "SupportUsButton": {
+        "url": "https://github.com/AOSSIE-Org/SupportUsButton",
+        "description": "A configurable and minimalistic \"Support Us\" button that can be easily integrated to frontends",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "supportusbutton",
+          "configurable",
+          "minimalistic",
+          "button",
+          "easily",
+          "integrated",
+          "frontends"
+        ]
+      },
+      "Template-Repo": {
+        "url": "https://github.com/AOSSIE-Org/Template-Repo",
+        "description": "Template that should be used for all repos of AOSSIE",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "template",
+          "repo",
+          "template",
+          "should",
+          "used",
+          "all",
+          "repos",
+          "aossie"
+        ]
+      },
+      "Template-Repo-Flutter": {
+        "url": "https://github.com/AOSSIE-Org/Template-Repo-Flutter",
+        "description": "Template Repo for Flutter Apps",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "template",
+          "repo",
+          "flutter",
+          "template",
+          "repo",
+          "flutter"
+        ]
+      },
+      "Template-Repo-NextJS": {
+        "url": "https://github.com/AOSSIE-Org/Template-Repo-NextJS",
+        "description": "Template Repo for Next.js EVM projects",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "template",
+          "repo",
+          "nextjs",
+          "template",
+          "repo",
+          "next",
+          "evm"
+        ]
+      },
+      "ThruBox-Client": {
+        "url": "https://github.com/AOSSIE-Org/ThruBox-Client",
+        "description": "Client SDK Library to Communicate with a ThruBox Server",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "thrubox",
+          "client",
+          "client",
+          "sdk",
+          "communicate",
+          "thrubox",
+          "thrubox client",
+          "thru box client",
+          "thru",
+          "box"
+        ]
+      },
+      "ThruBox-Server": {
+        "url": "https://github.com/AOSSIE-Org/ThruBox-Server",
+        "description": "A Minimal Relay Server",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "thrubox",
+          "relay",
+          "thru box",
+          "thru",
+          "box",
+          "relay server"
+        ]
+      },
+      "WebSift": {
+        "url": "https://github.com/AOSSIE-Org/WebSift",
+        "description": "Convert webpages to MML-ready formats",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "websift",
+          "convert",
+          "webpages",
+          "mml",
+          "ready",
+          "formats",
+          "web sift",
+          "web",
+          "sift"
+        ]
+      },
+      "Website": {
+        "url": "https://github.com/AOSSIE-Org/Website",
+        "description": "AOSSIE Offical Website",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "aossie",
+          "offical",
+          "aossie website"
+        ]
+      },
+      "Zplit": {
+        "url": "https://github.com/AOSSIE-Org/Zplit",
+        "description": "Payment splitting app.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "zplit",
+          "payment",
+          "splitting",
+          "split payment",
+          "split",
+          "payment splitting"
+        ]
+      },
+      "Zplit-Website": {
+        "url": "https://github.com/AOSSIE-Org/Zplit-Website",
+        "description": "Product website for Zplit by AOSSIE",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "zplit",
+          "product",
+          "zplit",
+          "aossie"
+        ]
+      }
+    }
+  },
+  "stability": {
+    "display_name": "Stability Nexus",
+    "github_org": "StabilityNexus",
+    "website": "https://stability.nexus",
+    "description": "Open-source research and software for stable, transparent finance.",
+    "timezone": "UTC",
+    "default_repo": "Info",
+    "catalogued_at": "2026-11-12T12:10:07+00:00",
+    "repos": {
+      ".github": {
+        "url": "https://github.com/StabilityNexus/.github",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "github"
+        ]
+      },
+      "Bene-FundRaising-EVM-Contracts": {
+        "url": "https://github.com/StabilityNexus/Bene-FundRaising-EVM-Contracts",
+        "description": "Fundraising Smart Contracts based on the Bene Protocol",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "bene",
+          "fundraising",
+          "evm",
+          "contracts",
+          "fundraising",
+          "contracts",
+          "bene",
+          "protocol",
+          "fundraising contracts"
+        ]
+      },
+      "Bene-FundRaising-EVM-Frontend": {
+        "url": "https://github.com/StabilityNexus/Bene-FundRaising-EVM-Frontend",
+        "description": "A Fundraising Platform",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "bene",
+          "fundraising",
+          "evm",
+          "frontend",
+          "fundraising",
+          "bene frontend",
+          "fundraising platform"
+        ]
+      },
+      "Bene-LandingPage": {
+        "url": "https://github.com/StabilityNexus/Bene-LandingPage",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "bene",
+          "landingpage"
+        ]
+      },
+      "BenefactionPlatform-Ergo": {
+        "url": "https://github.com/StabilityNexus/BenefactionPlatform-Ergo",
+        "description": "Fundraising Platform based on the Bene Proof-of-Funding Protocol",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "benefactionplatform",
+          "ergo",
+          "fundraising",
+          "bene",
+          "proof",
+          "funding",
+          "protocol",
+          "benefaction",
+          "bene ergo"
+        ]
+      },
+      "BenefactionPlatform-Ergo-Temporary": {
+        "url": "https://github.com/StabilityNexus/BenefactionPlatform-Ergo-Temporary",
+        "description": "",
+        "default_branch": "master",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "benefactionplatform",
+          "ergo",
+          "temporary"
+        ]
+      },
+      "Bountiful-BountyPlatform-Ergo": {
+        "url": "https://github.com/StabilityNexus/Bountiful-BountyPlatform-Ergo",
+        "description": "A decentralized platform to fund development through open competition",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "bountiful",
+          "bountyplatform",
+          "ergo",
+          "decentralized",
+          "fund",
+          "development",
+          "competition",
+          "bounty platform",
+          "bounty"
+        ]
+      },
+      "Chainvoice": {
+        "url": "https://github.com/StabilityNexus/Chainvoice",
+        "description": "Decentralized Invoicing Platform",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "chainvoice",
+          "decentralized",
+          "invoicing",
+          "chain voice",
+          "chain",
+          "voice"
+        ]
+      },
+      "Clowder": {
+        "url": "https://github.com/StabilityNexus/Clowder",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "clowder"
+        ]
+      },
+      "ContributorAutomation": {
+        "url": "https://github.com/StabilityNexus/ContributorAutomation",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "contributorautomation"
+        ]
+      },
+      "Destiny-EVM": {
+        "url": "https://github.com/StabilityNexus/Destiny-EVM",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "destiny",
+          "evm"
+        ]
+      },
+      "FairFund": {
+        "url": "https://github.com/StabilityNexus/FairFund",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "fairfund"
+        ]
+      },
+      "Fate-EVM-Frontend": {
+        "url": "https://github.com/StabilityNexus/Fate-EVM-Frontend",
+        "description": "Decentralized Prediction Pools on EVM chains",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "fate",
+          "evm",
+          "frontend",
+          "decentralized",
+          "prediction",
+          "pools",
+          "evm",
+          "chains",
+          "fate evm",
+          "prediction pools"
+        ]
+      },
+      "Fate-LandingPage": {
+        "url": "https://github.com/StabilityNexus/Fate-LandingPage",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "fate",
+          "landingpage"
+        ]
+      },
+      "Fate-Solana": {
+        "url": "https://github.com/StabilityNexus/Fate-Solana",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "fate",
+          "solana",
+          "fate solana"
+        ]
+      },
+      "Fate-Solana-WebUI": {
+        "url": "https://github.com/StabilityNexus/Fate-Solana-WebUI",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "fate",
+          "solana",
+          "webui"
+        ]
+      },
+      "Fate-Sui-Frontend": {
+        "url": "https://github.com/StabilityNexus/Fate-Sui-Frontend",
+        "description": "Decentralized Prediction Pools",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "fate",
+          "sui",
+          "frontend",
+          "decentralized",
+          "prediction",
+          "pools",
+          "fate sui"
+        ]
+      },
+      "GitPay": {
+        "url": "https://github.com/StabilityNexus/GitPay",
+        "description": "CI/CD-native payouts: a GitHub Action that pays contributors when a maintainer comments \"/send\"",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gitpay",
+          "native",
+          "payouts",
+          "github",
+          "action",
+          "pays",
+          "contributors",
+          "maintainer",
+          "comments",
+          "send",
+          "git pay",
+          "git",
+          "pay",
+          "payout action",
+          "payout"
+        ]
+      },
+      "Gluon-Ergo-Contracts": {
+        "url": "https://github.com/StabilityNexus/Gluon-Ergo-Contracts",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "ergo",
+          "contracts",
+          "gluon ergo",
+          "gluon contracts"
+        ]
+      },
+      "Gluon-Ergo-Contracts-Old-To-Be-Deleted": {
+        "url": "https://github.com/StabilityNexus/Gluon-Ergo-Contracts-Old-To-Be-Deleted",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "ergo",
+          "contracts",
+          "old",
+          "deleted"
+        ]
+      },
+      "Gluon-Ergo-SDK": {
+        "url": "https://github.com/StabilityNexus/Gluon-Ergo-SDK",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "ergo",
+          "sdk"
+        ]
+      },
+      "Gluon-Ergo-UI": {
+        "url": "https://github.com/StabilityNexus/Gluon-Ergo-UI",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "ergo",
+          "gluon ergo ui"
+        ]
+      },
+      "Gluon-Ergo-UI-Dollar": {
+        "url": "https://github.com/StabilityNexus/Gluon-Ergo-UI-Dollar",
+        "description": "Fork of Gluon Ergo UI - Configured for Dollar Deployment",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "ergo",
+          "dollar",
+          "fork",
+          "gluon",
+          "ergo",
+          "configured",
+          "dollar",
+          "deployment"
+        ]
+      },
+      "Gluon-Ergo-UI-Gold": {
+        "url": "https://github.com/StabilityNexus/Gluon-Ergo-UI-Gold",
+        "description": "Fork of Gluon Ergo UI - Configured for Gold Deployment",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "ergo",
+          "gold",
+          "fork",
+          "gluon",
+          "ergo",
+          "configured",
+          "gold",
+          "deployment"
+        ]
+      },
+      "Gluon-EVM": {
+        "url": "https://github.com/StabilityNexus/Gluon-EVM",
+        "description": "Gluon Stablecoin Protocol - Solidity Smart Contracts",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "evm",
+          "gluon",
+          "stablecoin",
+          "protocol",
+          "solidity",
+          "contracts",
+          "gluon evm",
+          "gluon solidity"
+        ]
+      },
+      "Gluon-EVM-WebUI": {
+        "url": "https://github.com/StabilityNexus/Gluon-EVM-WebUI",
+        "description": "Gluon Stablecoin Protocol - Lean Local Frontend to Interact with EVM Smart Contracts",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "evm",
+          "webui",
+          "gluon",
+          "stablecoin",
+          "protocol",
+          "lean",
+          "frontend",
+          "interact",
+          "evm",
+          "contracts",
+          "gluon web ui",
+          "web",
+          "gluon frontend"
+        ]
+      },
+      "Gluon-Formalization-Coq": {
+        "url": "https://github.com/StabilityNexus/Gluon-Formalization-Coq",
+        "description": "Formalization of the Gluon protocol in the Coq interactive theorem prover",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "formalization",
+          "coq",
+          "formalization",
+          "gluon",
+          "protocol",
+          "coq",
+          "interactive",
+          "theorem",
+          "prover",
+          "gluon formalization",
+          "gluon coq"
+        ]
+      },
+      "Gluon-LandingPage": {
+        "url": "https://github.com/StabilityNexus/Gluon-LandingPage",
+        "description": "Landing Page for all Gluon Deployments",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "landingpage",
+          "landing",
+          "page",
+          "all",
+          "gluon",
+          "deployments",
+          "gluon landing page",
+          "gluon website"
+        ]
+      },
+      "Gluon-PyGluon-Simulator": {
+        "url": "https://github.com/StabilityNexus/Gluon-PyGluon-Simulator",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "pygluon",
+          "simulator",
+          "gluon simulator"
+        ]
+      },
+      "Gluon-Simulation": {
+        "url": "https://github.com/StabilityNexus/Gluon-Simulation",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "simulation"
+        ]
+      },
+      "Gluon-Solana": {
+        "url": "https://github.com/StabilityNexus/Gluon-Solana",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gluon",
+          "solana"
+        ]
+      },
+      "GoogleSummerOfCode": {
+        "url": "https://github.com/StabilityNexus/GoogleSummerOfCode",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "googlesummerofcode",
+          "gsoc",
+          "google summer of code",
+          "google",
+          "summer"
+        ]
+      },
+      "GSoC": {
+        "url": "https://github.com/StabilityNexus/GSoC",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "gsoc",
+          "google summer of code",
+          "google",
+          "summer"
+        ]
+      },
+      "Hackathon-Website": {
+        "url": "https://github.com/StabilityNexus/Hackathon-Website",
+        "description": "Website of the Unstoppable Hackathon",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hackathon",
+          "unstoppable",
+          "hackathon"
+        ]
+      },
+      "HackHub-Solidity": {
+        "url": "https://github.com/StabilityNexus/HackHub-Solidity",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hackhub",
+          "solidity",
+          "hackhub contracts",
+          "contracts",
+          "hack hub",
+          "hack",
+          "hub"
+        ]
+      },
+      "HackHub-WebUI": {
+        "url": "https://github.com/StabilityNexus/HackHub-WebUI",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hackhub",
+          "webui",
+          "hackhub web ui",
+          "web"
+        ]
+      },
+      "HackNexus": {
+        "url": "https://github.com/StabilityNexus/HackNexus",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hacknexus",
+          "hack nexus",
+          "hack",
+          "nexus",
+          "hackathon"
+        ]
+      },
+      "HammerAuctionHouse-Solidity": {
+        "url": "https://github.com/StabilityNexus/HammerAuctionHouse-Solidity",
+        "description": "A Decentralized Auction Platform",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hammerauctionhouse",
+          "solidity",
+          "decentralized",
+          "auction",
+          "hammer auction",
+          "hammer",
+          "auction house",
+          "house"
+        ]
+      },
+      "HammerAuctionHouse-WebUI": {
+        "url": "https://github.com/StabilityNexus/HammerAuctionHouse-WebUI",
+        "description": "A Decentralized Auction Platform",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hammerauctionhouse",
+          "webui",
+          "decentralized",
+          "auction",
+          "hammer auction ui",
+          "hammer"
+        ]
+      },
+      "hodlcoin-Ergo-Frontend": {
+        "url": "https://github.com/StabilityNexus/hodlcoin-Ergo-Frontend",
+        "description": "Open source frontend for the hodlCoin game on Ergo blockchain",
+        "default_branch": "master",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hodlcoin",
+          "ergo",
+          "frontend",
+          "frontend",
+          "hodlcoin",
+          "game",
+          "ergo",
+          "blockchain",
+          "hodlcoin ergo"
+        ]
+      },
+      "hodlcoin-Ergo-Phoenix": {
+        "url": "https://github.com/StabilityNexus/hodlcoin-Ergo-Phoenix",
+        "description": "Contracts for the Phoenix implementation of HodlCoin.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hodlcoin",
+          "ergo",
+          "phoenix",
+          "contracts",
+          "phoenix",
+          "implementation",
+          "hodlcoin"
+        ]
+      },
+      "hodlCoin-Solidity-WebUI": {
+        "url": "https://github.com/StabilityNexus/hodlCoin-Solidity-WebUI",
+        "description": "hodlCoin Staking Platform",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hodlcoin",
+          "solidity",
+          "webui",
+          "hodlcoin",
+          "staking",
+          "hodlcoin web ui",
+          "web",
+          "hodlcoin staking"
+        ]
+      },
+      "hodlCoin-Website": {
+        "url": "https://github.com/StabilityNexus/hodlCoin-Website",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "hodlcoin",
+          "hodlcoin website",
+          "hodl coin",
+          "hodl",
+          "coin"
+        ]
+      },
+      "IdentityTokens-EVM-Contracts": {
+        "url": "https://github.com/StabilityNexus/IdentityTokens-EVM-Contracts",
+        "description": "Decentralized Identity Tokens",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "identitytokens",
+          "evm",
+          "contracts",
+          "decentralized",
+          "identity",
+          "tokens",
+          "identity tokens",
+          "identity token contracts",
+          "token"
+        ]
+      },
+      "IdentityTokens-EVM-Frontend": {
+        "url": "https://github.com/StabilityNexus/IdentityTokens-EVM-Frontend",
+        "description": "Decentralized Identity Tokens",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "identitytokens",
+          "evm",
+          "frontend",
+          "decentralized",
+          "identity",
+          "tokens",
+          "identity tokens frontend"
+        ]
+      },
+      "Info": {
+        "url": "https://github.com/StabilityNexus/Info",
+        "description": "Useful information about the Stability Nexus",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "info",
+          "useful",
+          "information",
+          "stability",
+          "nexus",
+          "stability nexus info",
+          "org info",
+          "org"
+        ]
+      },
+      "Karma-EVM-Contracts": {
+        "url": "https://github.com/StabilityNexus/Karma-EVM-Contracts",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "karma",
+          "evm",
+          "contracts",
+          "karma contracts"
+        ]
+      },
+      "Karma-EVM-Frontend": {
+        "url": "https://github.com/StabilityNexus/Karma-EVM-Frontend",
+        "description": "Frontend for Karma",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "karma",
+          "evm",
+          "frontend",
+          "frontend",
+          "karma",
+          "karma frontend"
+        ]
+      },
+      "Maelstrom-Solidity": {
+        "url": "https://github.com/StabilityNexus/Maelstrom-Solidity",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "maelstrom",
+          "solidity"
+        ]
+      },
+      "Maelstrom-WebUI": {
+        "url": "https://github.com/StabilityNexus/Maelstrom-WebUI",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "maelstrom",
+          "webui"
+        ]
+      },
+      "MiniChain": {
+        "url": "https://github.com/StabilityNexus/MiniChain",
+        "description": "A minimal blockchain for education, research and innovation",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "minichain",
+          "blockchain",
+          "education",
+          "research",
+          "innovation",
+          "mini chain",
+          "mini",
+          "chain"
+        ]
+      },
+      "namasteai": {
+        "url": "https://github.com/StabilityNexus/namasteai",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "namasteai"
+        ]
+      },
+      "OrbOracle-EVM-Frontend": {
+        "url": "https://github.com/StabilityNexus/OrbOracle-EVM-Frontend",
+        "description": "Lean Local Frontend for Decentralized Orb Oracles",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "orboracle",
+          "evm",
+          "frontend",
+          "lean",
+          "frontend",
+          "decentralized",
+          "orb",
+          "oracles",
+          "orb oracle frontend",
+          "oracle"
+        ]
+      },
+      "OrbOracle-Formalization": {
+        "url": "https://github.com/StabilityNexus/OrbOracle-Formalization",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "orboracle",
+          "formalization",
+          "orb oracle formalization",
+          "orb",
+          "oracle"
+        ]
+      },
+      "OrbOracle-Poster": {
+        "url": "https://github.com/StabilityNexus/OrbOracle-Poster",
+        "description": "Off-Chain Value Submitter for Decentralized Orb Oracles",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "orboracle",
+          "poster",
+          "off",
+          "chain",
+          "value",
+          "submitter",
+          "decentralized",
+          "orb",
+          "oracles"
+        ]
+      },
+      "OrbOracle-Solana": {
+        "url": "https://github.com/StabilityNexus/OrbOracle-Solana",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "orboracle",
+          "solana"
+        ]
+      },
+      "OrbOracle-Solidity": {
+        "url": "https://github.com/StabilityNexus/OrbOracle-Solidity",
+        "description": "Smart contracts for Decentralized Orb Oracles",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "orboracle",
+          "solidity",
+          "contracts",
+          "decentralized",
+          "orb",
+          "oracles",
+          "orb oracle",
+          "oracle"
+        ]
+      },
+      "Papers": {
+        "url": "https://github.com/StabilityNexus/Papers",
+        "description": "Our Papers",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "papers",
+          "papers",
+          "research papers",
+          "research"
+        ]
+      },
+      "Plaza": {
+        "url": "https://github.com/StabilityNexus/Plaza",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "plaza"
+        ]
+      },
+      "RainDrop-Frontend": {
+        "url": "https://github.com/StabilityNexus/RainDrop-Frontend",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "raindrop",
+          "frontend",
+          "raindrop frontend"
+        ]
+      },
+      "RainDrop-Solidity": {
+        "url": "https://github.com/StabilityNexus/RainDrop-Solidity",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "raindrop",
+          "solidity",
+          "raindrop contracts",
+          "contracts",
+          "rain drop",
+          "rain",
+          "drop"
+        ]
+      },
+      "StabilityWorkshop": {
+        "url": "https://github.com/StabilityNexus/StabilityWorkshop",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "stabilityworkshop",
+          "stability workshop",
+          "stability",
+          "workshop"
+        ]
+      },
+      "StableViewpoints": {
+        "url": "https://github.com/StabilityNexus/StableViewpoints",
+        "description": "Our publication with independent articles about stability.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "stableviewpoints",
+          "publication",
+          "independent",
+          "articles",
+          "stability"
+        ]
+      },
+      "Tectonic-EVM-WebUI": {
+        "url": "https://github.com/StabilityNexus/Tectonic-EVM-WebUI",
+        "description": "Tectonic Stablecoin Protocol - Web UI",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "tectonic",
+          "evm",
+          "webui",
+          "tectonic",
+          "stablecoin",
+          "protocol",
+          "web",
+          "tectonic web ui"
+        ]
+      },
+      "Template-Repo": {
+        "url": "https://github.com/StabilityNexus/Template-Repo",
+        "description": "Template-Repo",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "template",
+          "repo",
+          "template",
+          "repo"
+        ]
+      },
+      "Template-Repo-EVM-Contracts": {
+        "url": "https://github.com/StabilityNexus/Template-Repo-EVM-Contracts",
+        "description": "Template Repo for EVM Contracts",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "template",
+          "repo",
+          "evm",
+          "contracts",
+          "template",
+          "repo",
+          "evm",
+          "contracts"
+        ]
+      },
+      "Template-Repo-EVM-Keeper": {
+        "url": "https://github.com/StabilityNexus/Template-Repo-EVM-Keeper",
+        "description": "Decentralized Order-Book Auction-Based Exchange",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "template",
+          "repo",
+          "evm",
+          "keeper",
+          "decentralized",
+          "order",
+          "book",
+          "auction",
+          "exchange"
+        ]
+      },
+      "TNT": {
+        "url": "https://github.com/StabilityNexus/TNT",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "tnt"
+        ]
+      },
+      "TokenList": {
+        "url": "https://github.com/StabilityNexus/TokenList",
+        "description": "This repo contains the list of tokens that are supported by default in many of our projects.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "tokenlist",
+          "repo",
+          "contains",
+          "list",
+          "tokens",
+          "supported",
+          "default",
+          "many",
+          "token list",
+          "token",
+          "supported tokens"
+        ]
+      },
+      "Treee": {
+        "url": "https://github.com/StabilityNexus/Treee",
+        "description": "This mobile application allows users to document tree plantations, mint them as NFTs, and display them on a public map for verification. This not only encourages individuals to plant trees but also holds them accountable, ensuring long-term sustainability.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "treee",
+          "mobile",
+          "allows",
+          "document",
+          "tree",
+          "plantations",
+          "mint",
+          "nfts",
+          "display",
+          "public",
+          "map",
+          "verification",
+          "only",
+          "encourages",
+          "individuals",
+          "plant",
+          "trees",
+          "but",
+          "holds",
+          "accountable",
+          "ensuring",
+          "long",
+          "term",
+          "sustainability",
+          "tree planting",
+          "planting",
+          "tree nft",
+          "nft"
+        ]
+      },
+      "Treee-Solidity": {
+        "url": "https://github.com/StabilityNexus/Treee-Solidity",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "treee",
+          "solidity"
+        ]
+      },
+      "VouchMe": {
+        "url": "https://github.com/StabilityNexus/VouchMe",
+        "description": "",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "vouchme",
+          "vouch me",
+          "vouch"
+        ]
+      },
+      "WalletLink": {
+        "url": "https://github.com/StabilityNexus/WalletLink",
+        "description": "Library to Connect Frontends to EVM Wallets",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "walletlink",
+          "connect",
+          "frontends",
+          "evm",
+          "wallets",
+          "wallet link",
+          "wallet",
+          "link"
+        ]
+      },
+      "Website": {
+        "url": "https://github.com/StabilityNexus/Website",
+        "description": "Official website for the Stability Nexus",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "stability",
+          "nexus",
+          "stability nexus website"
+        ]
+      },
+      "Windmill-EVM-Contracts": {
+        "url": "https://github.com/StabilityNexus/Windmill-EVM-Contracts",
+        "description": "Auction-Based Order-Book Exchange",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "windmill",
+          "evm",
+          "contracts",
+          "auction",
+          "order",
+          "book",
+          "exchange",
+          "windmill contracts",
+          "windmill exchange",
+          "auction exchange"
+        ]
+      },
+      "Windmill-EVM-Keeper": {
+        "url": "https://github.com/StabilityNexus/Windmill-EVM-Keeper",
+        "description": "Off-Chain Keeper for Windmill",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "windmill",
+          "evm",
+          "keeper",
+          "off",
+          "chain",
+          "keeper",
+          "windmill",
+          "windmill keeper"
+        ]
+      },
+      "Windmill-EVM-WebUI": {
+        "url": "https://github.com/StabilityNexus/Windmill-EVM-WebUI",
+        "description": "Lean Web UI for Windmill Auction-Based Exchange",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "windmill",
+          "evm",
+          "webui",
+          "lean",
+          "web",
+          "windmill",
+          "auction",
+          "exchange",
+          "windmill web ui",
+          "windmill frontend",
+          "frontend"
+        ]
+      },
+      "Zplit": {
+        "url": "https://github.com/StabilityNexus/Zplit",
+        "description": "Payment splitting app.",
+        "default_branch": "main",
+        "docs": [
+          "README.md",
+          "CONTRIBUTING.md"
+        ],
+        "keywords": [
+          "zplit",
+          "payment",
+          "splitting"
+        ]
+      }
+    }
+  }
+}

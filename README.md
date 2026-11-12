@@ -1,56 +1,70 @@
-# AOSSIE Discord Agent MVP
+# AOSSIE + Stability Nexus AI Front Desk
 
-A passive Discord listener for AOSSIE contributor questions. It watches only an allowlisted channel, creates one thread per question, routes the question to a repository, retrieves repository Markdown, and replies with source links. It never needs Administrator permission and starts in read-only/audit mode.
+A Discord front desk for **AOSSIE-Org** and **StabilityNexus**. It answers member and contributor questions from maintainer-approved text and public project docs, creates pending questions for maintainers, and coordinates meetings.
 
-## Local setup
+## Run it
 
-```bash
-cd discord-agent
-python -m venv .venv
-# Windows PowerShell: .venv\\Scripts\\Activate.ps1
-# macOS/Linux: source .venv/bin/activate
+```powershell
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-copy .env.example .env  # Windows
-# cp .env.example .env  # macOS/Linux
-```
-
-Put your Discord bot token only in `.env`:
-
-```env
-DISCORD_TOKEN=your-token
-DISCORD_CHANNEL_ID=your-agent-test-channel-id
-ORG_NAME=AOSSIE
-```
-
-`DISCORD_CHANNEL_ID` is recommended for the first test. If it is empty, the bot watches text channels whose names contain `agent`, `support`, `gsoc`, or `skill`.
-
-Start it:
-
-```bash
+copy .env.example .env
+# put the bot token in .env
 python bot.py
 ```
 
-## Discord test
-
-Post a normal message in the configured channel:
+The bot auto-detects which organization a server belongs to from its name and provisions that server. For explicit control, an administrator can run:
 
 ```text
-How do I get started with SkillBot?
+/frontdesk setup org:aossie support_channel:#ask-a-question staff_channel:#maintainers staff_role:@Maintainer timezone:Australia/Melbourne
+/frontdesk setup org:stability support_channel:#support staff_channel:#staff staff_role:@Maintainer timezone:UTC
+/frontdesk status
 ```
 
-The expected result is a new thread with a source-backed response. Try an ambiguous question next:
+## Discord setup
 
-```text
-How do I get started?
+Enable **Message Content Intent** in the Discord Developer Portal. Invite the bot with `bot` and `applications.commands` scopes. It needs Send Messages, Create Public Threads, Read Message History, and Embed Links. It does not need Administrator.
+
+## What members can do
+
+- `/ask` or mention the bot in a support channel. It creates a thread and keeps context there.
+- `/help` lists capabilities.
+- `/human` escalates with priority and a conversation summary.
+- `/meet availability`, `/meet book`, `/meet list`, `/meet reschedule`, `/meet cancel`.
+- DMs work after the member has contacted the bot in an organization server.
+
+## What maintainers can do
+
+- `/knowledge add|list|show|cancel` — plain-text organization-wide or customer-specific knowledge.
+- `/pending list|show|answer|dismiss` — answer escalations. Replying to the bot's escalation message in the staff channel also answers it.
+- `/staff availability-add|availability-list|availability-remove` — publish weekly slots.
+- `/staff schedule` — upcoming bookings.
+- `/staff spam-add|spam-remove|spam-list` — block or unblock contacts.
+- `/frontdesk setup|status|autosetup`.
+
+## How answers work
+
+1. Provider-entered knowledge is searched first, scoped to the server and member.
+2. Public `README.md` / `CONTRIBUTING.md` files from the configured organization catalog are used as supporting context.
+3. If confidence is low, the bot records a pending question, tells the member, notifies the staff channel, and keeps the conversation open.
+4. A maintainer answer is stored with the chosen scope and sent back to the original conversation. Organization-wide answers also resolve other open questions they genuinely match.
+
+`REPO_DOCS_ENABLED=false` disables public-doc lookup and uses maintainer-entered text only.
+
+## Storage and safety
+
+- SQLite at `data/frontdesk.db`; audit events also append to `data/audit.jsonl`.
+- One Discord server is one data boundary. Customer-specific notes are only used for that member.
+- Bookings use atomic conflict checks; an existing booking is never moved or cancelled by an availability change.
+- Reminders and availability notices are stored in a durable notification queue and retried after failures.
+- `DEMO_MODE=true` restricts the instance to `DEMO_ALLOWED_USER_IDS` (maintainers are still allowed).
+
+## Refresh the organization catalog
+
+```powershell
+python scripts/build_org_catalog.py
 ```
 
-The bot should ask which AOSSIE project you mean. Questions it cannot support are appended to `data/gap_log.json`; all handled events are appended to `data/audit.jsonl`.
-
-## MVP safety boundaries
-
-The bot ignores its own messages, only watches configured channels, does not change roles, does not create GitHub issues, does not use Administrator permission, and does not send writes to GitHub. Repository docs are fetched from public GitHub raw URLs and cached under `data/repos`.
-
-For a production deployment, add a durable database, a scheduled doc sync, a local Ollama service or approved hosted model, retry/backoff, a maintainer approval queue, and the dashboard API adapter.
+This rebuilds `config/orgs.json` from the public GitHub repositories of both organizations.
 
 ## Render Web Service deployment
 
@@ -59,6 +73,8 @@ If the Render account does not show Background Worker, deploy this repository as
 - Build command: `pip install -r requirements.txt`
 - Start command: `python bot.py`
 - Health check path: `/health`
-- Environment variables: `DISCORD_TOKEN`, `DISCORD_CHANNEL_ID`, `ORG_NAME=AOSSIE`, `USE_OLLAMA=false`
+- Required environment variable: `DISCORD_TOKEN`
+- Optional variables: `DEFAULT_ORG`, `USE_OLLAMA`, `OLLAMA_BASE_URL`, `OLLAMA_MODEL`, `REPO_DOCS_ENABLED`
 
-Static Site and Workflow are not suitable for this continuously connected bot. A free Web Service may sleep depending on the hosting plan; use an always-on service or VPS for uninterrupted production availability.
+Static Site and Workflow are not suitable for this continuously connected bot. A free Web Service may sleep depending on the hosting plan; use an always-on service or VPS for uninterrupted production availability. Render's default filesystem is ephemeral, so attach a persistent disk and point `DATABASE_PATH`, `DOCS_DIR`, and `AUDIT_LOG` at it if you need records to survive restarts.
+
