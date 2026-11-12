@@ -26,7 +26,11 @@ USE_OLLAMA = os.getenv("USE_OLLAMA", "false").lower() == "true"
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "llama3.2")
 
-QUESTION_STARTERS = re.compile(r"^(how|where|what|when|why|can|could|is|are|does|do|which|who)\\b", re.I)
+QUESTION_STARTERS = re.compile(r"^(how|where|what|when|why|can|could|is|are|does|do|which|who)\b", re.I)
+HELP_SIGNALS = re.compile(
+    r"\b(help|stuck|blocked|issue|problem|error|bug|install|setup|start|run|build|deploy|contribut|docs?|guide|beginner|configur)\b",
+    re.I,
+)
 
 
 @dataclass
@@ -62,7 +66,14 @@ def append_gap(record: dict[str, Any]) -> None:
 
 def likely_question(message: discord.Message) -> bool:
     content = message.content.strip()
-    return "?" in content or bool(QUESTION_STARTERS.match(content)) or bool(message.mentions)
+    if not content:
+        return False
+    return (
+        "?" in content
+        or bool(QUESTION_STARTERS.match(content))
+        or bool(HELP_SIGNALS.search(content))
+        or bool(message.mentions)
+    )
 
 
 def route_question(question: str) -> Route | None:
