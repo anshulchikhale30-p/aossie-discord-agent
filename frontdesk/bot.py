@@ -267,12 +267,13 @@ class FrontDeskBot(commands.Bot):
             # when posted as ordinary text. Unrelated public conversation is
             # still ignored unless the bot is explicitly mentioned.
             change_request = looks_like_codebase_change_request(message.content)
+            natural_request = self.likely_question(message) or looks_like_greeting(message.content)
             # Do this before tenant/database/channel checks. If this message is
             # visible to the Gateway and the bot can send in the channel, the
             # user must see an acknowledgement even if later processing fails.
-            if not mentioned and not change_request:
+            if not mentioned and not change_request and not natural_request:
                 return
-            should_handle = mentioned or change_request
+            should_handle = mentioned or change_request or natural_request
             # Do this before tenant/database/channel checks. If this message is
             # visible to the Gateway and the bot can send in the channel, the
             # user must see an acknowledgement even if later processing fails.
