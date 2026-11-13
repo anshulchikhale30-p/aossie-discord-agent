@@ -2,6 +2,8 @@
 
 A Discord front desk for **AOSSIE-Org** and **StabilityNexus**. It answers member and contributor questions from maintainer-approved text and public project docs, creates pending questions for maintainers, and coordinates meetings.
 
+For the AOSSIE rebuild, maintainers and authorized staff are the provider side, while contributors are customers/participants. Provider-wide maintainer knowledge is kept separate from contributor-specific context. The Agent's scheduling, reminders, pending interactions, spam controls, and codebase-understanding quiz are the Discord surface of the same AOSSIE AI Front Desk represented by the companion operator dashboard.
+
 ## Run it
 
 ```powershell
