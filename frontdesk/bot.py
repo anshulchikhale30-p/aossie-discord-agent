@@ -263,6 +263,19 @@ class FrontDeskBot(commands.Bot):
             tenant = self.ensure_tenant(message.guild)
             if self.services.db.is_spam(int(tenant["id"]), message.author.id):
                 return
+
+            mentioned = self.bot_mentioned(message)
+            # Acknowledge first so a slow document/AI lookup never looks like a
+            # dead bot. This also makes permission and deployment testing clear.
+            if mentioned:
+                try:
+                    await message.channel.send(
+                        "I received your message — checking the approved project information now…",
+                        allowed_mentions=discord.AllowedMentions.none(),
+                    )
+                except discord.HTTPException:
+                    self.logger.exception("Could not acknowledge message %s", message.id)
+
             if is_staff_channel(tenant, message.channel, self.settings) and not self.bot_mentioned(message):
                 await self.handle_staff_reply(message, tenant)
                 return
@@ -275,7 +288,7 @@ class FrontDeskBot(commands.Bot):
             # Normal channel messages are intentionally mention-driven. This lets
             # the bot work in any public/private channel where it has permission,
             # without replying to every conversation in the server.
-            if self.bot_mentioned(message):
+            if mentioned:
                 customer = self.resolve_customer(tenant, message.author)
                 conversation = self.services.db.get_channel_conversation(
                     int(tenant["id"]), int(customer["id"]), message.channel.id
@@ -286,11 +299,25 @@ class FrontDeskBot(commands.Bot):
                 await self.handle_new_question(message, tenant)
         except Exception:
             self.logger.exception("Message handling failed for message %s", message.id)
+            if message.guild is not None:
+                try:
+                    await message.channel.send(
+                        "I received your message, but I hit a temporary processing error. "
+                        "Please try tagging me again in a moment; a maintainer can check the Render logs if it continues.",
+                        allowed_mentions=discord.AllowedMentions.none(),
+                    )
+                except discord.HTTPException:
+                    self.logger.exception("Could not send fallback error for message %s", message.id)
 
     def bot_mentioned(self, message: discord.Message) -> bool:
         if self.user is None:
             return False
-        return self.user in message.mentions or f"<@{self.user.id}>" in message.content
+        return (
+            self.user in message.mentions
+            or self.user.id in message.raw_mentions
+            or f"<@{self.user.id}>" in message.content
+            or f"<@!{self.user.id}>" in message.content
+        )
 
     def likely_question(self, message: discord.Message) -> bool:
         content = message.content.strip()
