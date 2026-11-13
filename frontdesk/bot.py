@@ -260,13 +260,11 @@ class FrontDeskBot(commands.Bot):
                 return
             if message.guild is None:
                 return
-            tenant = self.ensure_tenant(message.guild)
-            if self.services.db.is_spam(int(tenant["id"]), message.author.id):
-                return
 
             mentioned = self.bot_mentioned(message)
-            # Acknowledge first so a slow document/AI lookup never looks like a
-            # dead bot. This also makes permission and deployment testing clear.
+            # Do this before tenant/database/channel checks. If this message is
+            # visible to the Gateway and the bot can send in the channel, the
+            # user must see an acknowledgement even if later processing fails.
             if mentioned:
                 try:
                     await message.channel.send(
@@ -275,6 +273,10 @@ class FrontDeskBot(commands.Bot):
                     )
                 except discord.HTTPException:
                     self.logger.exception("Could not acknowledge message %s", message.id)
+
+            tenant = self.ensure_tenant(message.guild)
+            if self.services.db.is_spam(int(tenant["id"]), message.author.id):
+                return
 
             if is_staff_channel(tenant, message.channel, self.settings) and not self.bot_mentioned(message):
                 await self.handle_staff_reply(message, tenant)
