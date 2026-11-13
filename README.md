@@ -109,6 +109,10 @@ docker compose logs -f agent
 
 The `restart: unless-stopped` policy restarts the Agent after crashes or reboots, and the `agent_data` volume preserves the database, document cache, and audit log. Update it with `git pull && docker compose up -d --build`. Never commit `.env`, and never run the local and VPS copies simultaneously with the same token.
 
+### Dashboard connection
+
+The Agent also exposes a read-only provider API at `/api/frontdesk`. Set `FRONTDESK_API_TOKEN` to a long random value in `.env`; the dashboard sends that value server-side as `AGENT_API_TOKEN`. The endpoint returns provider-scoped metrics, conversations, and pending interactions only after bearer-token authentication. If the token is missing, the endpoint stays disabled.
+
 ## Codebase-understanding gate for issues and PRs
 
 When a member asks to create an issue, bug report, feature request, contribution, or pull request, the Agent starts a short three-question understanding check before processing the request. The questions cover the repository documentation, what to do when the docs are insufficient, and what a useful issue or PR description must contain.

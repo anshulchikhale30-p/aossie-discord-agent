@@ -433,6 +433,33 @@ class Database:
     def get_conversation_by_thread(self, thread_id: int | str) -> sqlite3.Row | None:
         return self._one("SELECT * FROM conversations WHERE thread_id = ?", (str(thread_id),))
 
+    def list_conversations(self, tenant_id: int, limit: int = 50) -> list[sqlite3.Row]:
+        return self._all(
+            """
+            SELECT c.*, cu.platform_user_id, cu.username, cu.display_name
+            FROM conversations c
+            LEFT JOIN customers cu ON cu.id = c.customer_id
+            WHERE c.tenant_id = ?
+            ORDER BY c.updated_at DESC
+            LIMIT ?
+            """,
+            (tenant_id, max(1, min(limit, 200))),
+        )
+
+    def provider_metrics(self, tenant_id: int) -> dict[str, int]:
+        values: dict[str, int] = {}
+        queries = {
+            "customers": "SELECT COUNT(*) FROM customers WHERE tenant_id = ?",
+            "open_conversations": "SELECT COUNT(*) FROM conversations WHERE tenant_id = ? AND status = 'open'",
+            "pending": "SELECT COUNT(*) FROM pending_questions WHERE tenant_id = ? AND status = 'open'",
+            "knowledge": "SELECT COUNT(*) FROM knowledge WHERE tenant_id = ? AND status = 'active'",
+            "upcoming_bookings": "SELECT COUNT(*) FROM bookings WHERE tenant_id = ? AND status = 'confirmed' AND start_ts >= datetime('now')",
+        }
+        for key, sql in queries.items():
+            row = self._one(sql, (tenant_id,))
+            values[key] = int(row[0]) if row else 0
+        return values
+
     def get_channel_conversation(
         self, tenant_id: int, customer_id: int, channel_id: int | str
     ) -> sqlite3.Row | None:

@@ -18,5 +18,9 @@ services:
       # support channels and can be configured with /frontdesk setup.
       - key: DISCORD_CHANNEL_ID
         sync: false
+      - key: FRONTDESK_API_TOKEN
+        sync: false
+      - key: FRONTDESK_API_ORIGIN
+        sync: false
       # Render's default filesystem is ephemeral. Attach a persistent disk and
       # set DATABASE_PATH, DOCS_DIR, and AUDIT_LOG to keep records across restarts.
