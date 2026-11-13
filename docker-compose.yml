@@ -1,0 +1,19 @@
+services:
+  agent:
+    build: .
+    container_name: aossie-frontdesk-agent
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      PORT: "8080"
+      DATABASE_PATH: /app/data/frontdesk.db
+      DOCS_DIR: /app/data/docs
+      AUDIT_LOG: /app/data/audit.jsonl
+    ports:
+      - "8080:8080"
+    volumes:
+      - agent_data:/app/data
+
+volumes:
+  agent_data:

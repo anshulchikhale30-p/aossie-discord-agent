@@ -78,6 +78,35 @@ If the Render account does not show Background Worker, deploy this repository as
 
 Static Site and Workflow are not suitable for this continuously connected bot. A free Web Service may sleep depending on the hosting plan; use an always-on service or VPS for uninterrupted production availability. Render's default filesystem is ephemeral, so attach a persistent disk and point `DATABASE_PATH`, `DOCS_DIR`, and `AUDIT_LOG` at it if you need records to survive restarts.
 
+## Gitcord-style Docker development and always-on deployment
+
+This repository now supports the same operational flow used by Gitcord: develop locally with Docker, persist SQLite in a named volume, and run the same container on an always-on Linux VPS when the computer must be off. The bot only needs outbound HTTPS access to Discord; it does not need an inbound public webhook.
+
+### Local development
+
+```bash
+cp .env.example .env
+# put DISCORD_TOKEN in .env
+docker compose up -d --build
+docker compose logs -f agent
+```
+
+Stop it with `docker compose down`. Do not run a second copy with the same Discord token while testing, or Discord will disconnect one of the sessions.
+
+### Always-on VPS
+
+```bash
+git clone https://github.com/anshulchikhale30-p/aossie-discord-agent.git
+cd aossie-discord-agent
+cp .env.example .env
+# edit .env and add the production DISCORD_TOKEN
+docker compose up -d --build
+docker compose ps
+docker compose logs -f agent
+```
+
+The `restart: unless-stopped` policy restarts the Agent after crashes or reboots, and the `agent_data` volume preserves the database, document cache, and audit log. Update it with `git pull && docker compose up -d --build`. Never commit `.env`, and never run the local and VPS copies simultaneously with the same token.
+
 ## Codebase-understanding gate for issues and PRs
 
 When a member asks to create an issue, bug report, feature request, contribution, or pull request, the Agent starts a short three-question understanding check before processing the request. The questions cover the repository documentation, what to do when the docs are insufficient, and what a useful issue or PR description must contain.
