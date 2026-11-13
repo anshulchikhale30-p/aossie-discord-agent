@@ -18,11 +18,9 @@ from .config import OrgDefinition, Settings
 from .permissions import (
     channel_ids,
     channel_link,
-    is_demo_allowed,
     is_guild_admin,
     is_staff_channel,
     is_staff_member,
-    is_support_channel,
 )
 from .services import Services
 from .text import (
@@ -182,6 +180,26 @@ class FrontDeskBot(commands.Bot):
         self.logger.info("Provisioned %s for guild %s (%s)", org.display_name, guild.name, guild.id)
         return tenant
 
+    def ensure_dm_tenant(self, user: discord.abc.User) -> sqlite3.Row:
+        """Create a private default-organization boundary for first-contact DMs."""
+        guild_key = f"dm:{user.id}"
+        existing = self.services.db.get_tenant_by_guild(guild_key)
+        if existing is not None:
+            return existing
+        org = self.services.catalog.get(self.settings.default_org)
+        tenant = self.services.db.create_tenant(
+            guild_key,
+            org.key,
+            org.display_name,
+            org.timezone,
+            staff_role_ids=[],
+            support_channel_ids=[],
+            staff_channel_id=None,
+            reminder_offsets=self.settings.default_reminder_offsets,
+        )
+        self.resolve_customer(tenant, user)
+        return tenant
+
     def org_for(self, tenant: sqlite3.Row) -> OrgDefinition:
         return self.services.catalog.get(tenant["org_key"])
 
@@ -227,23 +245,10 @@ class FrontDeskBot(commands.Bot):
             await interaction.response.send_message("Use this command in one of the organization servers.", ephemeral=True)
             return None
         tenant = self.ensure_tenant(interaction.guild)
-        if not self.demo_allowed(interaction.user, tenant):
-            await interaction.response.send_message(
-                "This demonstration instance is limited to authorized accounts.",
-                ephemeral=True,
-            )
-            return None
         if self.services.db.is_spam(int(tenant["id"]), interaction.user.id):
             await interaction.response.send_message("I can’t process that request.", ephemeral=True)
             return None
         return tenant, interaction.user
-
-    def demo_allowed(self, user: discord.abc.User, tenant: sqlite3.Row | None = None) -> bool:
-        if is_demo_allowed(user.id, self.settings):
-            return True
-        if tenant is not None and isinstance(user, discord.Member) and self.is_staff(user, tenant):
-            return True
-        return False
 
     # Message handling --------------------------------------------------------
     async def on_message(self, message: discord.Message) -> None:
@@ -251,18 +256,14 @@ class FrontDeskBot(commands.Bot):
             return
         try:
             if isinstance(message.channel, discord.DMChannel):
-                if not self.demo_allowed(message.author):
-                    return
                 await self.handle_dm(message)
                 return
             if message.guild is None:
                 return
             tenant = self.ensure_tenant(message.guild)
-            if not self.demo_allowed(message.author, tenant):
-                return
             if self.services.db.is_spam(int(tenant["id"]), message.author.id):
                 return
-            if is_staff_channel(tenant, message.channel, self.settings):
+            if is_staff_channel(tenant, message.channel, self.settings) and not self.bot_mentioned(message):
                 await self.handle_staff_reply(message, tenant)
                 return
 
@@ -271,12 +272,18 @@ class FrontDeskBot(commands.Bot):
                 await self.handle_follow_up(message, conversation)
                 return
 
-            mentioned = self.bot_mentioned(message)
-            support = is_support_channel(tenant, message.channel, self.settings)
-            if support or mentioned:
-                if mentioned or self.likely_question(message):
-                    existing_thread = message.channel if isinstance(message.channel, discord.Thread) else None
-                    await self.handle_new_question(message, tenant, existing_thread=existing_thread)
+            # Normal channel messages are intentionally mention-driven. This lets
+            # the bot work in any public/private channel where it has permission,
+            # without replying to every conversation in the server.
+            if self.bot_mentioned(message):
+                customer = self.resolve_customer(tenant, message.author)
+                conversation = self.services.db.get_channel_conversation(
+                    int(tenant["id"]), int(customer["id"]), message.channel.id
+                )
+                if conversation is not None:
+                    await self.handle_follow_up(message, conversation)
+                    return
+                await self.handle_new_question(message, tenant)
         except Exception:
             self.logger.exception("Message handling failed for message %s", message.id)
 
@@ -309,13 +316,10 @@ class FrontDeskBot(commands.Bot):
         existing_thread: discord.Thread | None = None,
     ) -> None:
         customer = self.resolve_customer(tenant, message.author)
+        # Keep ordinary tagged conversations in the channel. Threads are only
+        # used when a user or maintainer explicitly creates one, or when an
+        # existing thread is already the conversation surface.
         thread = existing_thread
-        if thread is None and isinstance(message.channel, discord.TextChannel):
-            name = self.clean_question(message.content, self.user.id if self.user else None)[:80] or "New question"
-            try:
-                thread = await message.create_thread(name=f"Front desk · {name}", auto_archive_duration=1440)
-            except discord.HTTPException:
-                thread = None
         conversation = self.services.db.create_conversation(
             int(tenant["id"]),
             int(customer["id"]),
@@ -739,11 +743,8 @@ class FrontDeskBot(commands.Bot):
     async def handle_dm(self, message: discord.Message) -> None:
         tenants = self.services.db.customer_tenants(message.author.id)
         if not tenants:
-            await message.channel.send(
-                "I don’t have a verified organization for you yet. Please message me in the "
-                "AOSSIE or Stability Nexus Discord server first, then I can continue here."
-            )
-            return
+            self.ensure_dm_tenant(message.author)
+            tenants = self.services.db.customer_tenants(message.author.id)
         if len(tenants) == 1:
             await self.handle_dm_for_tenant(message, int(tenants[0]["tenant_id"]))
             return

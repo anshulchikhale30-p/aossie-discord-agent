@@ -87,3 +87,9 @@ The member selects answers using Discord buttons. If all answers are correct, th
 > That option is not correct. Please re-study the codebase, README, and CONTRIBUTING.md before creating an issue or PR.
 
 The check is stored in SQLite, so a passed member does not have to repeat it for every later issue or PR. This is an onboarding quality gate, not proof that someone understands every line of the repository; maintainers still review issues and pull requests.
+
+## Channel and DM interaction behavior
+
+The Agent no longer creates a thread for every message. In a server, mention the Agent in any public or private channel where Discord permissions allow it to read and send messages. It replies in that same channel and reuses the same user/channel conversation when the user mentions it again. It does not respond to ordinary untagged conversation, so it will not interrupt every channel message.
+
+Users can also DM the Agent directly. The Agent creates a private default-organization conversation for first-contact DMs and continues there. Server administrators control access using Discord’s normal channel, role, invite, and bot-permission settings; staff-only commands still require staff or administrator roles. Threads remain supported when a user explicitly starts in an existing thread or a maintainer uses a thread.

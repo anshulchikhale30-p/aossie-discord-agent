@@ -433,6 +433,18 @@ class Database:
     def get_conversation_by_thread(self, thread_id: int | str) -> sqlite3.Row | None:
         return self._one("SELECT * FROM conversations WHERE thread_id = ?", (str(thread_id),))
 
+    def get_channel_conversation(
+        self, tenant_id: int, customer_id: int, channel_id: int | str
+    ) -> sqlite3.Row | None:
+        return self._one(
+            """
+            SELECT * FROM conversations
+            WHERE tenant_id = ? AND customer_id = ? AND channel_id = ? AND thread_id IS NULL
+            ORDER BY id DESC LIMIT 1
+            """,
+            (tenant_id, customer_id, str(channel_id)),
+        )
+
     def get_dm_conversation(self, tenant_id: int, customer_id: int, channel_id: int | str) -> sqlite3.Row | None:
         return self._one(
             """
