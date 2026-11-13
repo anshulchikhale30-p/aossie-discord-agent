@@ -262,10 +262,11 @@ class FrontDeskBot(commands.Bot):
                 return
 
             mentioned = self.bot_mentioned(message)
+            should_handle = mentioned or self.likely_question(message) or looks_like_greeting(message.content)
             # Do this before tenant/database/channel checks. If this message is
             # visible to the Gateway and the bot can send in the channel, the
             # user must see an acknowledgement even if later processing fails.
-            if mentioned:
+            if should_handle:
                 try:
                     await message.channel.send(
                         "I received your message — checking the approved project information now…",
@@ -278,7 +279,7 @@ class FrontDeskBot(commands.Bot):
             if self.services.db.is_spam(int(tenant["id"]), message.author.id):
                 return
 
-            if is_staff_channel(tenant, message.channel, self.settings) and not self.bot_mentioned(message):
+            if is_staff_channel(tenant, message.channel, self.settings) and not mentioned:
                 await self.handle_staff_reply(message, tenant)
                 return
 
@@ -290,13 +291,14 @@ class FrontDeskBot(commands.Bot):
             # Normal channel messages are intentionally mention-driven. This lets
             # the bot work in any public/private channel where it has permission,
             # without replying to every conversation in the server.
-            if mentioned:
+            if should_handle:
                 customer = self.resolve_customer(tenant, message.author)
                 conversation = self.services.db.get_channel_conversation(
                     int(tenant["id"]), int(customer["id"]), message.channel.id
                 )
                 if conversation is not None:
-                    await self.handle_follow_up(message, conversation)
+                    if should_handle:
+                        await self.handle_follow_up(message, conversation)
                     return
                 await self.handle_new_question(message, tenant)
         except Exception:
