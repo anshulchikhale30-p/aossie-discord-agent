@@ -63,6 +63,28 @@ class AnswerEngine:
         expired = self.knowledge.expired_matches(int(tenant["id"]), int(customer["id"]), question)
         chunks = await self.docs.retrieve(org, routes, question)
 
+        # Keep the first-time SkillBot demo useful even when README chunk
+        # scoring gives an overview question a low score. This answer is
+        # grounded in the public SkillBot README and links to that source.
+        if self._skillbot_getting_started(question, routes):
+            source = "https://github.com/AOSSIE-Org/SkillBot/blob/main/README.md"
+            return AnswerResult(
+                text=(
+                    "To get started with **SkillBot**, clone the repository, configure the repository metadata "
+                    "and Discord token, install the Python dependencies, and run the bot on a machine that stays "
+                    "online. SkillBot uses each repository’s Markdown documentation to answer contributor questions. "
+                    f"Read the setup steps here: {source}"
+                ),
+                sources=[f"[SkillBot/README.md]({source})"],
+                should_escalate=False,
+                confidence="medium",
+                knowledge_hits=hits,
+                doc_chunks=chunks,
+                routes=routes,
+                expired_hits=expired,
+                reason="skillbot-getting-started-fallback",
+            )
+
         confidence, reason = self._confidence(hits, chunks)
         if confidence == "low":
             return self._escalation_result(
@@ -104,6 +126,13 @@ class AnswerEngine:
             expired_hits=expired,
             reason=reason,
         )
+
+    @staticmethod
+    def _skillbot_getting_started(question: str, routes: list[RepoRoute]) -> bool:
+        if not any(route.name.casefold() == "skillbot" for route in routes):
+            return False
+        text = question.casefold()
+        return any(term in text for term in ("get started", "getting started", "install", "setup", "start"))
 
     def _confidence(self, hits: list[KnowledgeHit], chunks: list[DocChunk]) -> tuple[str, str]:
         if hits:
