@@ -262,7 +262,12 @@ class FrontDeskBot(commands.Bot):
                 return
 
             mentioned = self.bot_mentioned(message)
-            should_handle = mentioned or self.likely_question(message) or looks_like_greeting(message.content)
+            # In server channels, only explicit mentions should wake the bot.
+            # DMs are handled naturally because the DM itself is addressed to
+            # the bot and does not need an @mention.
+            if not mentioned:
+                return
+            should_handle = True
             # Do this before tenant/database/channel checks. If this message is
             # visible to the Gateway and the bot can send in the channel, the
             # user must see an acknowledgement even if later processing fails.
