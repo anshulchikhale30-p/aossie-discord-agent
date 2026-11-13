@@ -262,12 +262,17 @@ class FrontDeskBot(commands.Bot):
                 return
 
             mentioned = self.bot_mentioned(message)
-            # In server channels, only explicit mentions should wake the bot.
-            # DMs are handled naturally because the DM itself is addressed to
-            # the bot and does not need an @mention.
-            if not mentioned:
+            # A contributor should not need to know the bot's mention for an
+            # issue/PR request. These requests start the codebase check even
+            # when posted as ordinary text. Unrelated public conversation is
+            # still ignored unless the bot is explicitly mentioned.
+            change_request = looks_like_codebase_change_request(message.content)
+            # Do this before tenant/database/channel checks. If this message is
+            # visible to the Gateway and the bot can send in the channel, the
+            # user must see an acknowledgement even if later processing fails.
+            if not mentioned and not change_request:
                 return
-            should_handle = True
+            should_handle = mentioned or change_request
             # Do this before tenant/database/channel checks. If this message is
             # visible to the Gateway and the bot can send in the channel, the
             # user must see an acknowledgement even if later processing fails.
