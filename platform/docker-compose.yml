@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: frontdesk
+      POSTGRES_PASSWORD: frontdesk
+      POSTGRES_DB: frontdesk
+    ports:
+      - "5432:5432"
+    volumes:
+      - frontdesk-postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U frontdesk -d frontdesk"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  frontdesk:
+    build: .
+    image: frontdesk:dev
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://frontdesk:frontdesk@postgres:5432/frontdesk
+      WORKFLOW_POSTGRES_URL: postgres://frontdesk:frontdesk@postgres:5432/frontdesk
+      RUN_MIGRATIONS: "true"
+      RUN_SEED: "true"
+      RUN_WORKFLOW_BOOTSTRAP: "true"
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/eve/v1/health').then(r => process.exit(r.ok ? 0 : 1)).catch(() => process.exit(1))",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  gateway:
+    image: frontdesk:dev
+    command: ["node_modules/.bin/tsx", "scripts/discord-gateway.ts"]
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: postgres://frontdesk:frontdesk@postgres:5432/frontdesk
+      WORKFLOW_POSTGRES_URL: postgres://frontdesk:frontdesk@postgres:5432/frontdesk
+      DISCORD_GATEWAY_WEBHOOK_URL: http://frontdesk:3000/eve/v1/discord
+      RUN_MIGRATIONS: "false"
+      RUN_SEED: "false"
+      RUN_WORKFLOW_BOOTSTRAP: "false"
+    depends_on:
+      frontdesk:
+        condition: service_healthy
+
+volumes:
+  frontdesk-postgres:

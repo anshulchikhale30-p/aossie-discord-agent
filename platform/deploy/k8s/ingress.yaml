@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: frontdesk
+  namespace: frontdesk
+  annotations:
+    # k3s ships Traefik. Replace the class and TLS settings for your cluster.
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: frontdesk.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontdesk
+                port:
+                  name: http
+  tls:
+    - hosts:
+        - frontdesk.example.com
+      secretName: frontdesk-tls

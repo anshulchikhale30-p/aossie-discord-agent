@@ -1,0 +1,5 @@
+allowBuilds:
+  cbor-extract: true
+  esbuild: true
+minimumReleaseAgeExclude:
+  - eve@1.0.0-rc.18

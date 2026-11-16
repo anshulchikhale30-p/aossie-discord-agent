@@ -1,0 +1,9 @@
+node_modules
+.output
+.eve
+.env
+.env.*
+!.env.example
+coverage
+test
+*.log

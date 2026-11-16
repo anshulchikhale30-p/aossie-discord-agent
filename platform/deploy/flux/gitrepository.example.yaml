@@ -1,0 +1,15 @@
+# Apply once (or let `flux bootstrap` create it) before the Kustomizations.
+# Replace the URL with your fork.
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: frontdesk
+  namespace: flux-system
+spec:
+  interval: 1m
+  url: https://github.com/anshulchikhale30-p/aossie-discord-agent
+  ref:
+    branch: main
+  # For a private repository, create a secret and uncomment:
+  # secretRef:
+  #   name: frontdesk-git-auth

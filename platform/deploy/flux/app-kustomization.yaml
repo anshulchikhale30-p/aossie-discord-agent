@@ -1,0 +1,16 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: frontdesk
+  namespace: flux-system
+spec:
+  interval: 10m
+  targetNamespace: frontdesk
+  path: ./platform/deploy/k8s
+  prune: true
+  wait: true
+  dependsOn:
+    - name: cloudnative-pg
+  sourceRef:
+    kind: GitRepository
+    name: frontdesk
